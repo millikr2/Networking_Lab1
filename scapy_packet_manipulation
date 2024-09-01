@@ -1,0 +1,28 @@
+# your code here
+for pkt in pkts:
+    print(pkt.name)
+    print("before source ", pkt.src)
+    print("before destination ", pkt.dst)
+    if pkt.getlayer(0).name == 'Ethernet':
+        pkt.src = ('11:11:11:11:11:11')
+        pkt.dst = ('22:22:22:22:22:22') 
+
+    print(pkt.name)
+    print("after source ", pkt.src)
+    print("after destination ", pkt.dst)
+
+
+
+
+
+for pkt in pkts:
+    if pkt.getlayer(0).name == 'Ethernet':
+        if pkt.getlayer(0).name == 'Ethernet' and pkt.src == '11:11:11:11:11:11':
+            print("PASS")
+        else:
+            print("FAIL")
+        if pkt.getlayer(0).name == 'Ethernet' and pkt.dst == '22:22:22:22:22:22':
+            print("PASS")
+        else:
+            print("FAIL")
+
